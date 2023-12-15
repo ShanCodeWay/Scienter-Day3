@@ -5,6 +5,7 @@ import { NavigationContainer, createStackNavigator, View, Text, TouchableOpacity
 import { logScreenStyles } from '../Styles/logScreenStyles';
 
 import  MainTextInput  from '../Components/mainTextInput'; 
+import {LOG_IN} from '../Navigator/constonts'
 
 const LogScreen: React.FC = () => {
   const navigation = useNavigation();
@@ -51,10 +52,12 @@ const LogScreen: React.FC = () => {
           secureTextEntry={true}
           onChangeText={(text) => setPassword(text)}
           value={password}
+          textColor='black'
+
         />
 
           <TouchableOpacity style={logScreenStyles.buttonL as any} onPress={handleLogin}>
-            <Text style={logScreenStyles.buttonText as any }>Logina</Text>
+            <Text style={logScreenStyles.buttonText as any }>Log in</Text>
           </TouchableOpacity>
 
           <Text style={logScreenStyles.signup as any }>Don't have an account?</Text>

@@ -16,14 +16,25 @@ import {
   useNavigation,
 } from '../Imports/imports';
 
+import {LOG_IN} from '../Navigator/constonts'
+
 import { signupScreenStyles } from '../Styles/signupScreenStyles';
 import  MainTextInput  from '../Components/mainTextInput'; 
+
+
+
+
+
 
 const SignupScreen: React.FC = () => {
   const navigation = useNavigation();
   const [username, setUsername] = useStateImport<string>('');
   const [email, setEmail] = useStateImport<string>('');
   const [password, setPassword] = useStateImport<string>('');
+
+
+
+
 
   const handleSignup = () => {
     try {
@@ -78,7 +89,7 @@ const SignupScreen: React.FC = () => {
             <Text style={signupScreenStyles.buttonText as any}>Sign Up</Text>
           </TouchableOpacity>
           <Text style={signupScreenStyles.signup as any}>Already have an account?</Text>
-          <TouchableOpacity style={signupScreenStyles.buttonL as any} onPress={() => navigation.navigate('Log-in' as never ) }>
+          <TouchableOpacity style={signupScreenStyles.buttonL as any} onPress={() => navigation.navigate( LOG_IN as never ) }>
             <Text style={signupScreenStyles.buttonText as any}>Login</Text>
           </TouchableOpacity>
         </View>

@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { LogScreen, SignupScreen, SplashScreen, Image, AppbarImage } from '../Imports/imports';
-
+import {LOG_IN} from '../Navigator/constonts'
 const Stack = createStackNavigator();
 
 function Navigator() {
@@ -35,7 +35,7 @@ function Navigator() {
         }}
       > 
         <Stack.Screen name="Splash" component={SplashScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Log-in" component={LogScreen} />
+        <Stack.Screen name={LOG_IN} component={LogScreen} />
         <Stack.Screen name="Sign up" component={SignupScreen} />
       </Stack.Navigator>
     </NavigationContainer>
