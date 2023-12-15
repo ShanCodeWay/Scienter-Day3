@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { NavigationContainer, createStackNavigator, View, Text, TextInput, TouchableOpacity, ImageBackground, ScrollView, KeyboardAvoidingView, Platform, Image, 
+import { NavigationContainer, createStackNavigator, View, Text, TouchableOpacity, ImageBackground, ScrollView, KeyboardAvoidingView, Platform, Image, 
   AppbarImage, useNavigation, useState as useStateImport, backgroundImage, navigatorStyles, signupScreenStyles  } from '../Imports/imports';
 
 import { logScreenStyles } from '../Styles/logScreenStyles';
 
+import  MainTextInput  from '../Components/mainTextInput'; 
 
 const LogScreen: React.FC = () => {
   const navigation = useNavigation();
@@ -33,40 +34,33 @@ const LogScreen: React.FC = () => {
       <ImageBackground source={backgroundImage} style={logScreenStyles.backgroundImage}>
         <View style={logScreenStyles.container}>
 
-                                    <TextInput
-                              style={logScreenStyles.input as any} 
-                              placeholder="Username"
-                              onChangeText={(text) => setUsername(text)}
-                              value={username}
-                            />
+        <MainTextInput
+          placeholder="Username"
+          onChangeText={(text) => setUsername(text)}
+          value={username}
+        />
 
-                            <TextInput
-                              style={logScreenStyles.input as any} 
-                              placeholder="Email"
-                              onChangeText={(text) => setEmail(text)}
-                              value={email}
-                            />
+        <MainTextInput
+          placeholder="Email"
+          onChangeText={(text) => setEmail(text)}
+          value={email}
+        />
 
-                            <TextInput
-                              style={logScreenStyles.input as any} 
-                              placeholder="Password"
-                              secureTextEntry={true}
-                              onChangeText={(text) => setPassword(text)}
-                              value={password}
-                            />
+        <MainTextInput
+          placeholder="Password"
+          secureTextEntry={true}
+          onChangeText={(text) => setPassword(text)}
+          value={password}
+        />
 
           <TouchableOpacity style={logScreenStyles.buttonL as any} onPress={handleLogin}>
-
-            <Text style={logScreenStyles.buttonText as any }>
-
-            Login</Text>
+            <Text style={logScreenStyles.buttonText as any }>Logina</Text>
           </TouchableOpacity>
 
           <Text style={logScreenStyles.signup as any }>Don't have an account?</Text>
 
           <TouchableOpacity style={logScreenStyles.buttonS as any} onPress={() => navigation.navigate('Sign up' as never)}>
             <Text style={logScreenStyles.buttonText as any}>Sign Up</Text>
-
           </TouchableOpacity>
         </View>
       </ImageBackground>
