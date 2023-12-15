@@ -6,18 +6,24 @@ import { logScreenStyles } from '../Styles/logScreenStyles';
 
 import  MainTextInput  from '../Components/mainTextInput'; 
 import {LOG_IN} from '../Navigator/constonts'
+import ErrorModal from '../Components/errorModal';
 
 const LogScreen: React.FC = () => {
+
+  
   const navigation = useNavigation();
   const [username, setUsername] = useStateImport<string>('');
   const [email, setEmail] = useStateImport<string>('');
   const [password, setPassword] = useStateImport<string>('');
+  const [isErrorModalVisible, setIsErrorModalVisible] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   const handleLogin = () => {
     try {
       
       if (!username || !email || !password) {
-        console.log('Please fill in all fields');
+        setErrorMessage('Please fill in all fields..!!!');
+        setIsErrorModalVisible(true);
         return;
       }
 
@@ -30,11 +36,19 @@ const LogScreen: React.FC = () => {
       setPassword('');
     } catch (error) {
       console.error('Error during login:', error);
+      setErrorMessage('An error occurred during login');
+      setIsErrorModalVisible(true);
       setUsername('');
       setEmail('');
       setPassword('');
     }
   };
+
+  const closeErrorModal = () => {
+    setIsErrorModalVisible(false);
+  };
+
+
 
   return (
     <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>
@@ -79,6 +93,11 @@ const LogScreen: React.FC = () => {
 
 
         </View>
+        <ErrorModal
+            isVisible={isErrorModalVisible}
+            message={errorMessage}
+            onClose={closeErrorModal}
+          />
       </ImageBackground>
     </KeyboardAvoidingView>
   );
