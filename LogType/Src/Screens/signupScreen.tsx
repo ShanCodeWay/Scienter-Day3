@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
 import {
-  NavigationContainer,
-  createStackNavigator,
   View,
   Text,
-  TextInput,
+ 
   TouchableOpacity,
   ImageBackground,
   KeyboardAvoidingView,
   Platform,
-  Image,
-  AppbarImage,
   useState as useStateImport,
   backgroundImage,
   useNavigation,

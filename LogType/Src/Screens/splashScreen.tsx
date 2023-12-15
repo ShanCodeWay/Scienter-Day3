@@ -1,22 +1,7 @@
-import React, { useEffect } from 'react';
 import {
-  NavigationContainer,
-  createStackNavigator,
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
   ImageBackground,
-  ScrollView,
-  KeyboardAvoidingView,
-  Platform,
-  Image,
-  AppbarImage,
-  useState,
   backgroundImage,
   useNavigation,
-
-  
   useEffect as useEffectImport,
  
   

@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import { NavigationContainer, createStackNavigator, View, Text, TouchableOpacity, ImageBackground, ScrollView, KeyboardAvoidingView, Platform, Image, 
-  AppbarImage, useNavigation, useState as useStateImport, backgroundImage, navigatorStyles, signupScreenStyles  } from '../Imports/imports';
+import {  View, Text, TouchableOpacity, ImageBackground, ScrollView, KeyboardAvoidingView, Platform,  
+  useNavigation, useState as useStateImport, backgroundImage,   } from '../Imports/imports';
 
 import { logScreenStyles } from '../Styles/logScreenStyles';
 
 import  MainTextInput  from '../Components/mainTextInput'; 
-import {LOG_IN} from '../Navigator/constonts'
 import ErrorModal from '../Components/errorModal';
 
 const LogScreen: React.FC = () => {
 
-  
+
   const navigation = useNavigation();
   const [username, setUsername] = useStateImport<string>('');
   const [email, setEmail] = useStateImport<string>('');

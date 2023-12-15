@@ -1,6 +1,3 @@
-//but this style sheet not import to navigator.js then following import will direct code in navigotor.js file. please reffer it
-
-
 import { 
     AppbarImage,Image
 } from  '../Imports/imports';

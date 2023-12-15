@@ -1,4 +1,3 @@
-// MainTextInput.tsx
 import React, { useState } from 'react';
 import { View, TextInput, TextInputProps, TextStyle, Text } from 'react-native';
 import { mainTextInputStyles } from './mainTextInputStyle.tsx';

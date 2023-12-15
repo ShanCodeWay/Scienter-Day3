@@ -1,5 +1,3 @@
-// mainTextInputStyle.tsx
-
 import { StyleSheet, Dimensions } from 'react-native';
 
 export const mainTextInputStyles = StyleSheet.create({
