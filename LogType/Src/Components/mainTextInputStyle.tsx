@@ -15,4 +15,11 @@ export const mainTextInputStyles = StyleSheet.create({
     fontSize: 20,
     color: '#105',
   },
+
+  hint:{
+    position: 'absolute',
+    marginTop: -20,
+    marginLeft: 30,
+    color:'white'
+  }
 });

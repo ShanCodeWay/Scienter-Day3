@@ -15,6 +15,12 @@ const LogScreen: React.FC = () => {
 
   const handleLogin = () => {
     try {
+      
+      if (!username || !email || !password) {
+        console.log('Please fill in all fields');
+        return;
+      }
+
       console.log('Username:', username);
       console.log('Email:', email);
       console.log('Password:', password);
@@ -33,18 +39,23 @@ const LogScreen: React.FC = () => {
   return (
     <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>
       <ImageBackground source={backgroundImage} style={logScreenStyles.backgroundImage}>
-        <View style={logScreenStyles.container}>
+        <View style={logScreenStyles.container  as any}>
 
         <MainTextInput
           placeholder="Username"
           onChangeText={(text) => setUsername(text)}
           value={username}
+          hint="Please enter a username"
+          
         />
 
         <MainTextInput
+          hint="Please enter a valid email address"
           placeholder="Email"
           onChangeText={(text) => setEmail(text)}
           value={email}
+          textColor='red'
+          
         />
 
         <MainTextInput
@@ -53,7 +64,7 @@ const LogScreen: React.FC = () => {
           onChangeText={(text) => setPassword(text)}
           value={password}
           textColor='black'
-
+          hint="Please enter a valid Password"
         />
 
           <TouchableOpacity style={logScreenStyles.buttonL as any} onPress={handleLogin}>
@@ -65,6 +76,8 @@ const LogScreen: React.FC = () => {
           <TouchableOpacity style={logScreenStyles.buttonS as any} onPress={() => navigation.navigate('Sign up' as never)}>
             <Text style={logScreenStyles.buttonText as any}>Sign Up</Text>
           </TouchableOpacity>
+
+
         </View>
       </ImageBackground>
     </KeyboardAvoidingView>

@@ -48,8 +48,11 @@ const logScreenStyles = {
     buttonL: {
       backgroundColor: 'rgba(40,61,125,0.9)',
       padding: 10,
+      marginTop:-20,
       borderRadius: 15,
       width: '80%',
+      alignItems: 'center',
+      
     },
     buttonText: {
       color: 'white',
