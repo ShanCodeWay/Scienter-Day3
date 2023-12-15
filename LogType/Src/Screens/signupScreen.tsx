@@ -17,6 +17,7 @@ import {
 } from '../Imports/imports';
 
 import { signupScreenStyles } from '../Styles/signupScreenStyles';
+import  MainTextInput  from '../Components/mainTextInput'; 
 
 const SignupScreen: React.FC = () => {
   const navigation = useNavigation();
@@ -45,32 +46,33 @@ const SignupScreen: React.FC = () => {
     <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>
       <ImageBackground source={backgroundImage} style={signupScreenStyles.backgroundImage}>
         <View style={signupScreenStyles.container as any} >
-          <TextInput
-            style={signupScreenStyles.input as any}
-            placeholder="Enter your name"
-            onChangeText={(text) => setUsername(text)}
-            value={username}
-          />
-          <TextInput
-            style={signupScreenStyles.input as any}
-            placeholder="Enter your Email"
-            onChangeText={(text) => setEmail(text)}
-            value={email}
-          />
-          <TextInput
-            style={signupScreenStyles.input as any}
-            placeholder="Enter your Password"
-            secureTextEntry={true}
-            onChangeText={(text) => setPassword(text)}
-            value={password}
-          />
-          <TextInput
-            style={signupScreenStyles.input as any}
-            placeholder="Confirm your Password"
-            secureTextEntry={true}
-            onChangeText={(text) => setPassword(text)}
-            value={password}
-          />
+        
+        
+        <MainTextInput
+          placeholder="Username"
+          onChangeText={(text) => setUsername(text)}
+          value={username}
+        />
+
+        <MainTextInput
+          placeholder="Email"
+          onChangeText={(text) => setEmail(text)}
+          value={email}
+        />
+
+        <MainTextInput
+          placeholder="Password"
+          secureTextEntry={true}
+          onChangeText={(text) => setPassword(text)}
+          value={password}
+        />
+           <MainTextInput
+          placeholder="Confirm your Password"
+          secureTextEntry={true}
+          onChangeText={(text) => setPassword(text)}
+          value={password}
+        />
+        
 
           <TouchableOpacity style={signupScreenStyles.buttonS as any} onPress={handleSignup}>
             <Text style={signupScreenStyles.buttonText as any}>Sign Up</Text>

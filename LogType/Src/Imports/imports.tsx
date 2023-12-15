@@ -43,8 +43,6 @@ export {
   signupScreenStyles,
   SplashScreen,
   useEffect,
-
-  
   splashScreenStyles,
   
 };
