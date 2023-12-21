@@ -10,8 +10,9 @@ interface MainTextInputProps extends TextInputProps {
 }
 
 const MainTextInput: React.FC<MainTextInputProps> = ({ placeholder, textColor, textSize, hint, ...textInputProps }) => {
+ 
+ 
   const [isFocused, setIsFocused] = useState(false);
-
   const [dynamicStyles, setDynamicStyles] = useState<TextStyle>({})
 
 
@@ -38,6 +39,7 @@ const MainTextInput: React.FC<MainTextInputProps> = ({ placeholder, textColor, t
         onBlur={() => setIsFocused(false)}
         {...textInputProps}
       />
+
       {shouldShowHint && <Text style={[mainTextInputStyles.hint,]}>{hint}</Text>}
 
     </View>

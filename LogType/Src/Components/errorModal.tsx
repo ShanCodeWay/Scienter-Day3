@@ -10,6 +10,7 @@ interface ErrorModalProps {
 }
 
 const ErrorModal: React.FC<ErrorModalProps> = ({ isVisible, message, onClose }) => {
+  
   return (
     <Modal
       animationType="slide"
