@@ -13,7 +13,8 @@ const MainTextInput: React.FC<MainTextInputProps> = ({ placeholder, textColor, t
  
  
   const [isFocused, setIsFocused] = useState(false);
-  const [dynamicStyles, setDynamicStyles] = useState<TextStyle>({})
+  const [dynamicStyles, setDynamicStyles] = useState 
+   <TextStyle>({})
 
 
   useEffect(() => {
@@ -24,8 +25,8 @@ const MainTextInput: React.FC<MainTextInputProps> = ({ placeholder, textColor, t
       color: inputTextColor,
       fontSize: inputTextSize,
     });
-  }, [textColor, textSize]);
 
+  }, [textColor, textSize]);
 
   const shouldShowHint = !textInputProps.value && isFocused && hint;
 
