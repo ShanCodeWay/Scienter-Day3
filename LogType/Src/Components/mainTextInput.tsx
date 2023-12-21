@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { View, TextInput, TextInputProps, TextStyle, Text } from 'react-native';
 import { mainTextInputStyles } from './mainTextInputStyle.tsx';
 
@@ -12,18 +12,25 @@ interface MainTextInputProps extends TextInputProps {
 const MainTextInput: React.FC<MainTextInputProps> = ({ placeholder, textColor, textSize, hint, ...textInputProps }) => {
   const [isFocused, setIsFocused] = useState(false);
 
-  const inputTextColor = textColor || mainTextInputStyles.input.color;
-  const inputTextSize = textSize || mainTextInputStyles.input.fontSize;
+  const [dynamicStyles, setDynamicStyles] = useState<TextStyle>({})
 
-  const dynamicStyles: TextStyle = {
-    color: inputTextColor,
-    fontSize: inputTextSize,
-  };
+
+  useEffect(() => {
+    const inputTextColor = textColor || mainTextInputStyles.input.color;
+    const inputTextSize = textSize || mainTextInputStyles.input.fontSize;
+
+    setDynamicStyles({
+      color: inputTextColor,
+      fontSize: inputTextSize,
+    });
+  }, [textColor, textSize]);
+
 
   const shouldShowHint = !textInputProps.value && isFocused && hint;
 
   return (
     <View>
+
       <TextInput
         style={[mainTextInputStyles.input, dynamicStyles]}
         placeholder={placeholder}
@@ -32,6 +39,7 @@ const MainTextInput: React.FC<MainTextInputProps> = ({ placeholder, textColor, t
         {...textInputProps}
       />
       {shouldShowHint && <Text style={[mainTextInputStyles.hint,]}>{hint}</Text>}
+
     </View>
   );
 };
